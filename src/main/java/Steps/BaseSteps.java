@@ -1,9 +1,11 @@
 package Steps;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 
 public class BaseSteps {
     public WebDriver webDriver;
@@ -38,13 +40,13 @@ public class BaseSteps {
     }
 
     public void scrollToElementJS(WebElement element) {
-        //No es necesario maximizar la ventana
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
     public void maximizarVentana() {
         webDriver.manage().window().maximize();
     }
+
 
     public void scrollToElement(WebElement element) {
         new Actions(webDriver)
@@ -73,4 +75,5 @@ public class BaseSteps {
                 .dragAndDrop(drag, elementDrop)
                 .perform();
     }
+
 }

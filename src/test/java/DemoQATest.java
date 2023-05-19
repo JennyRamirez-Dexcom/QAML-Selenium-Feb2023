@@ -1,3 +1,4 @@
+import Steps.DemoQADroppableSteps;
 import Steps.DemoQASteps;
 import Steps.GoogleSteps;
 import org.openqa.selenium.WebDriver;
@@ -7,7 +8,8 @@ import org.testng.annotations.Test;
 public class DemoQATest extends BaseTest{
     private WebDriver webDriver = getWebDriver();
     private DemoQASteps demoQASteps = new DemoQASteps(webDriver);
-
+    private DemoQADroppableSteps demoQaDroppableSteps = new DemoQADroppableSteps(webDriver);
+    private String demoQADroppedMessage= "Dropped!";
 //    @Test
 //    public void practica1() {
 //        //1.Abrir DemoQA
@@ -63,5 +65,12 @@ public class DemoQATest extends BaseTest{
         demoQASteps.enviarPermanentAddress("Calle Permanente, Colonia Permanente, 67890");
         //demoQASteps.clickSubmit();
         //demoQASteps.cerrarVentana();
+    }
+
+    @Test
+    public void Practise6Actions(){
+        demoQaDroppableSteps.gettoDemoblazePage();
+        demoQaDroppableSteps.dragAndDrop();
+        Assert.assertEquals(demoQaDroppableSteps.getDroppedPElementText(),demoQADroppedMessage );
     }
 }
