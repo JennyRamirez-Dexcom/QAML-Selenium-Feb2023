@@ -1,6 +1,8 @@
 package Steps;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class BaseSteps {
     public WebDriver webDriver;
@@ -32,5 +34,13 @@ public class BaseSteps {
 
     public void imprimir(String cadenaAImprimir) {
         System.out.println(cadenaAImprimir);
+    }
+
+    public void scrollToElementJS(WebElement element) {
+        ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
+    }
+
+    public void maximizarVentana() {
+        webDriver.manage().window().maximize();
     }
 }
