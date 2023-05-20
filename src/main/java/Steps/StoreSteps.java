@@ -15,7 +15,10 @@ public class StoreSteps extends BaseSteps{
 
     StorePage storePage = PageFactory.initElements(webDriver, StorePage.class);
 
-(Selenium PageFactory intro)
+
+    //StorePage storePage = new StorePage(webDriver);
+    StorePage storePage = new StorePage();
+
     public void setUpStore(){
         webDriver.get("https://www.demoblaze.com/");
         webDriver.manage().window().maximize();

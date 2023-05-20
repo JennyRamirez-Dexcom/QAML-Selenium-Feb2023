@@ -5,9 +5,15 @@ import org.openqa.selenium.support.FindBy;
 
 public class DemoQASelectMenuPage extends BasePage{
 
+
     public DemoQASelectMenuPage(WebDriver _webDriver){
         super(_webDriver);
     }
+
+//    public DemoQASelectMenuPage(WebDriver _webDriver){
+//        super(_webDriver);
+//    }
+
     private WebElement setlistaColores(){
         return webDriver.findElement(By.id("oldSelectMenu"));
     }
