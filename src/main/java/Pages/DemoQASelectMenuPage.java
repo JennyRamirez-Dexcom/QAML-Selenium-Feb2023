@@ -9,12 +9,12 @@ public class DemoQASelectMenuPage extends BasePage{
         super(driver);
     }
 
-    private WebElement setListaColores(){
+    private WebElement setlistaColores(){
         return webDriver.findElement(By.id("oldSelectMenu"));
     }
 
     public WebElement getListaColores(){
-        return setListaColores();
+        return setlistaColores();
     }
 
     private WebElement setListaCarros(){

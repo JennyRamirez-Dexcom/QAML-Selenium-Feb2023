@@ -1,7 +1,7 @@
 import Steps.DemoQASteps;
-import Steps.GoogleSteps;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class DemoQATest extends BaseTest{
@@ -42,11 +42,17 @@ public class DemoQATest extends BaseTest{
 //        demoQASteps.cerrarVentana();
 //    }
 
-    @Test
-    public void practica2(){
-    // 1. Abra https://demoqa.com/text-box/
+    @BeforeTest(description = "Precondiciones para las pruebas de DemoQATest",
+    alwaysRun = true)
+    public void beforeDemoQATests() {
+        // 1. Abra https://demoqa.com/text-box/
+        demoQASteps.imprimir("@BeforeTest");
         demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.maximizarVentana();
+    }
 
+    @Test(description = "Test para llenar formulario", groups = {"SmokeTest"})
+    public void practica2(){
     // Completa el formulario
         demoQASteps.fillForm();
 
@@ -56,39 +62,48 @@ public class DemoQATest extends BaseTest{
 
     @Test
     public void practica_2(){
-        demoQASteps.abrirPaginaDemoQA();
         demoQASteps.enviarFullName("Moises Lopez Garcia");
         demoQASteps.enviarEmail("moylop1996@qamindlab.com");
         demoQASteps.enviarCurrentAddress("Calle 1, Colonia 2, 12345");
         demoQASteps.enviarPermanentAddress("Calle Permanente, Colonia Permanente, 67890");
-        //demoQASteps.clickSubmit();
-        //demoQASteps.cerrarVentana();
     }
 
-    @Test
+
+    @Test(description = "Test para arrastrar un div y soltarlo en otro div", priority = 1)
     public void practica4_Select(){
         demoQASteps.abrirPaginaDemoQA();
         demoQASteps.navegarSelectMenuPage();
-        demoQASteps.imprimir("Imprimir opciones disponbieles");
-        demoQASteps.imprimirOpcionesColoresDisponibles();
         demoQASteps.imprimir("Imprimir atributo value");
-        demoQASteps.imprimirValoresOpcionesColoresDisponibles();
-        demoQASteps.imprimir("Imprimir opciones seleccionadas");
         demoQASteps.seleccionarColorPorText("Yellow");
         demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
+
         demoQASteps.seleccionarColorPorValue("2");
         demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
+
         demoQASteps.seleccionarColorPorIndex(4);
         demoQASteps.imprimir(demoQASteps.getColorSeleccionado());
+
         demoQASteps.finalizarWebDriver();
     }
 
     @Test
-    public void practica4_SelectMultiple(){
+    public void practica4_select_multiple() {
         demoQASteps.abrirPaginaDemoQA();
         demoQASteps.navegarSelectMenuPage();
         demoQASteps.scrollHaciaListaCarros();
-        demoQASteps.imprimirValoresOpcionesCarrosDisponibles();
+        demoQASteps.imprimirOpcionesCarrosDisponibles();
+    }
+
+    @Test(description = "Test para arrastrar un div y soltarlo en otro div")
+    public void practica6ActionsTest() {
+        demoQASteps.abrirDroppablePage();
+        demoQASteps.dragAndDrop();
+    }
+
+    @AfterTest(description = "Metodo para ejecutar despues de cualquier test",
+    alwaysRun = true)
+    public void afterDemoQATests() {
+        demoQASteps.imprimir("@AfterTest");
         demoQASteps.finalizarWebDriver();
     }
 }
