@@ -1,18 +1,15 @@
 package Pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class StorePage extends BasePage{
+    @FindBy(xpath = "//a[@id='itemc']")
+    private List<WebElement> categories;
 
-    public WebElement PhonesCategorie(){
-        return webDriver.findElement(By.xpath("//div[@class='list-group']/child::a[2]"));
-    }
-    public WebElement laptopsCategorie(){
-        return webDriver.findElement(By.xpath("//div[@class='list-group']/child::a[3]"));
-    }
-    public WebElement monitorsCategorie() {
-        return webDriver.findElement(By.xpath("//div[@class='list-group']/child::a[4]"));
+    public List<WebElement> getCategories(){
+        return categories;
     }
 }

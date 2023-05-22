@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
+
 public class StoreSteps extends BaseSteps{
     public StoreSteps (WebDriver driver){
         super(driver);
@@ -13,27 +15,22 @@ public class StoreSteps extends BaseSteps{
 
     StorePage storePage = PageFactory.initElements(webDriver, StorePage.class);
 
-    public void setUpStore(){
+    public void abrirPaginaDemoBlaze(){
         webDriver.get("https://www.demoblaze.com/");
-        webDriver.manage().window().maximize();
-        imprimir("Navegando en Store");
     }
-    public boolean verifyIsPhonesCategory(){
-        WebElement phones = storePage.PhonesCategorie();
-        imprimir("Phones Categorie is Displayed: " + phones.isDisplayed());
-        return isCorrectlyDisplayedElement(phones);
+
+    public List<WebElement> imprimirCategorias(){
+        for (WebElement webElement: storePage.getCategories()){
+            String categoria = webElement.getText();
+            System.out.println(categoria);
+        }
+        return null;
     }
-    public boolean verifyLaptopsCategory(){
-        WebElement laptops = storePage.laptopsCategorie();
-        imprimir("Laptops Categorie is DIsplayed: " + laptops.isDisplayed());
-        return isCorrectlyDisplayedElement(laptops);
-    }
-    public boolean verifyIsMonitorsCategory(){
-        WebElement monitors = storePage.monitorsCategorie();
-        imprimir("Monitors Categorie is Displayed: " + monitors.isDisplayed());
-        return isCorrectlyDisplayedElement(monitors);
-    }
-    public void tearDown(){
-        webDriver.quit();
+
+    public List<WebElement> obtenerCategorias(){
+        for (WebElement webElement: storePage.getCategories()){
+            String categoria = webElement.getText();
+        }
+        return null;
     }
 }
