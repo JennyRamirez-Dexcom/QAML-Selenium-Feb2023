@@ -11,13 +11,13 @@ public class StoreSteps extends BaseSteps{
         super(driver);
     }
 
-    StorePage storePage = new StorePage(webDriver);
+   // StorePage storePage = new StorePage(webDriver);
 
     StorePage storePage = PageFactory.initElements(webDriver, StorePage.class);
 
 
     //StorePage storePage = new StorePage(webDriver);
-    StorePage storePage = new StorePage();
+    //StorePage storePage = new StorePage();
 
     public void setUpStore(){
         webDriver.get("https://www.demoblaze.com/");
