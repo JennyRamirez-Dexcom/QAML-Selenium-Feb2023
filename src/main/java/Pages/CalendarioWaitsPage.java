@@ -3,7 +3,7 @@ package Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CalendarioWaitsPage extends BasePage {
+public class CalendarioWaitsPage {
     @FindBy(xpath="//td[@title='Monday, May 22, 2023']")
     private WebElement tdMay22;
 
