@@ -3,6 +3,8 @@ import Steps.DemoQASteps;
 import Steps.GoogleSteps;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class DemoQATest extends BaseTest{
@@ -44,11 +46,17 @@ public class DemoQATest extends BaseTest{
 //        demoQASteps.cerrarVentana();
 //    }
 
-    @Test
-    public void practica2(){
-    // 1. Abra https://demoqa.com/text-box/
+    @BeforeTest(description = "Precondiciones para las pruebas de DemoQATest",
+    alwaysRun = true)
+    public void beforeDemoQATests() {
+        // 1. Abra https://demoqa.com/text-box/
+        demoQASteps.imprimir("@BeforeTest");
         demoQASteps.abrirPaginaDemoQA();
+        demoQASteps.maximizarVentana();
+    }
 
+    @Test(description = "Test para llenar formulario", groups = {"SmokeTest"})
+    public void practica2(){
     // Completa el formulario
         demoQASteps.fillForm();
 
@@ -58,14 +66,12 @@ public class DemoQATest extends BaseTest{
 
     @Test
     public void practica_2(){
-        demoQASteps.abrirPaginaDemoQA();
         demoQASteps.enviarFullName("Moises Lopez Garcia");
         demoQASteps.enviarEmail("moylop1996@qamindlab.com");
         demoQASteps.enviarCurrentAddress("Calle 1, Colonia 2, 12345");
         demoQASteps.enviarPermanentAddress("Calle Permanente, Colonia Permanente, 67890");
-        //demoQASteps.clickSubmit();
-        //demoQASteps.cerrarVentana();
     }
+
 
     @Test
     public void Practise6Actions(){
@@ -73,4 +79,19 @@ public class DemoQATest extends BaseTest{
         demoQaDroppableSteps.dragAndDrop();
         Assert.assertEquals(demoQaDroppableSteps.getDroppedPElementText(),demoQADroppedMessage );
     }
+
+
+    @Test(description = "Test para arrastrar un div y soltarlo en otro div")
+    public void practica6ActionsTest() {
+        demoQASteps.abrirDroppablePage();
+        demoQASteps.dragAndDrop();
+    }
+
+    @AfterTest(description = "Metodo para ejecutar despues de cualquier test",
+    alwaysRun = true)
+    public void afterDemoQATests() {
+        demoQASteps.imprimir("@AfterTest");
+        demoQASteps.finalizarWebDriver();
+    }
+
 }
