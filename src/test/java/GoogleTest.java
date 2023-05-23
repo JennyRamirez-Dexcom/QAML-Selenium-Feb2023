@@ -12,7 +12,7 @@ public class GoogleTest extends BaseTest {
         googleSteps.abrirPaginaGoogle();
         String urlActual = googleSteps.getURLActual();
         System.out.println("La URL actual es: " + urlActual);
-        Assert.assertEquals(urlActual, "https://www.google.com");
+        Assert.assertEquals(urlActual, "https://www.google.com/");
     }
 
     @Test
