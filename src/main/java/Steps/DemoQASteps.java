@@ -19,7 +19,7 @@ public class DemoQASteps extends BaseSteps {
     }
 
     DemoQADroppablePage demoQADroppablePage = PageFactory.initElements(webDriver, DemoQADroppablePage.class);
-    DemoQASelectMenuPage demoQASelectMenuPage = PageFactory.initElements(webDriver, DemoQASelectMenuPage.class);
+    //DemoQASelectMenuPage demoQASelectMenuPage = new DemoQASelectMenuPage(webDriver);
 
     public void abrirPaginaDemoQA(){
         webDriver.get("https://demoqa.com/text-box/");

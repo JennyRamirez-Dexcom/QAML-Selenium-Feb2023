@@ -1,27 +1,25 @@
 package Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class DemoQADroppablePage extends BasePage {
-    public DemoQADroppablePage(WebDriver webDriver) {
-        super(webDriver);
-    }
+//    public DemoQADroppablePage(WebDriver webDriver) {
+//        super(webDriver);
+//    }
 
-    private WebElement setDivDraggable() {
-        return webDriver.findElement(By.xpath("//div[@id='draggable']"));
-    }
+    @FindBy(xpath = "//div[@id='draggable']")
+    private WebElement divDraggable;
 
-    private WebElement setDivDroppable() {
-        return webDriver.findElement(By.xpath("//div[@id='simpleDropContainer']/div[@id='droppable']"));
-    }
+    @FindBy(xpath = "//div[@id='simpleDropContainer']/div[@id='droppable']")
+    private WebElement divDroppable;
 
     public WebElement getDivDraggable() {
-        return setDivDraggable();
+        return divDraggable;
     }
 
     public WebElement getDivDroppable() {
-        return setDivDroppable();
+        return divDroppable;
     }
 }
