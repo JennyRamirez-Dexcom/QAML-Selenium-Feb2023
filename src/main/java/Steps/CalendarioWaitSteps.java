@@ -1,10 +1,14 @@
 package Steps;
 
 import Pages.CalendarioWaitsPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
+import java.time.Duration;
 import java.util.function.Function;
 
 public class CalendarioWaitSteps extends BaseSteps {
@@ -23,11 +27,13 @@ public class CalendarioWaitSteps extends BaseSteps {
     }
 
     public void waitFechaSeleccionada () {
-        Wait <WebDriver> fluentWait = new Wait<WebDriver>() {
-            @Override
-            public <T> T until(Function<? super WebDriver, T> isTrue) {
-                return null;
-            }
-        }
+        Wait<WebDriver> fluentWait = new FluentWait<>(webDriver)
+                .withTimeout(Duration.ofSeconds(30))
+                .pollingEvery(Duration.ofSeconds(2))
+                .ignoring(NoSuchElementException.class);
+
+        fluentWait.until(webDriver1 -> {
+            return webDriver1.findElement(By.id("idX"));
+        });
     }
 }
