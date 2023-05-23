@@ -9,7 +9,6 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 
 import java.time.Duration;
-import java.util.function.Function;
 
 public class CalendarioWaitSteps extends BaseSteps {
     public CalendarioWaitSteps(WebDriver driver) {
@@ -29,7 +28,7 @@ public class CalendarioWaitSteps extends BaseSteps {
     public void waitFechaSeleccionada () {
         Wait<WebDriver> fluentWait = new FluentWait<>(webDriver)
                 .withTimeout(Duration.ofSeconds(30))
-                .pollingEvery(Duration.ofSeconds(2))
+                .pollingEvery(Duration.ofSeconds(5))
                 .ignoring(NoSuchElementException.class);
 
         fluentWait.until(webDriver1 -> {
