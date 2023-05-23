@@ -71,8 +71,9 @@ public class BaseSteps {
 
     public void dragAndDropElement(WebElement elementDrop,
                                    WebElement drag) {
+        //System.out.println("Drop"+elementDrop.getText() + "grag"+drag.getText());
         new Actions(webDriver)
-                .dragAndDrop(drag, elementDrop)
+                .dragAndDrop(elementDrop,drag)
                 .perform();
     }
 
