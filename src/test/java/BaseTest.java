@@ -13,8 +13,7 @@ public class BaseTest {
 
     public WebDriver getWebDriver() {
 
-        String rutaChromeDriver = getProperty(CHROME_DRIVER_PATH);
-        File roothPath = new File(rutaChromeDriver);
+        File roothPath = new File("C:/Users/OsLoV/chromedriver.exe");
         System.setProperty("webdriver.chrome.driver", roothPath.getPath());
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--incognito");
