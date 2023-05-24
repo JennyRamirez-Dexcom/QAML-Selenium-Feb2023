@@ -4,9 +4,12 @@ import Pages.CalendarioWaitsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -25,14 +28,19 @@ public class CalendarioWaitSteps extends BaseSteps {
         calendarioWaitsPage.getTdMay22().click();
     }
 
-    public void waitFechaSeleccionada () {
+    public void waitFechaSeleccionada() {
         Wait<WebDriver> fluentWait = new FluentWait<>(webDriver)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(5))
                 .ignoring(NoSuchElementException.class);
 
         fluentWait.until(webDriver1 -> {
-            return webDriver1.findElement(By.id("idX"));
+            return calendarioWaitsPage.getSpanMay22().isDisplayed();
         });
+    }
+
+    public void waitFechaSeleccionadaExplicit() {
+        WebElement explicitWait = new WebDriverWait(webDriver, Duration.ofSeconds(30))
+                .until(ExpectedConditions.visibilityOf(calendarioWaitsPage.getSpanMay22()));
     }
 }
