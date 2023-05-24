@@ -1,12 +1,10 @@
 package Steps;
 
-
 import Pages.CalendarioWaitsPage;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
@@ -40,10 +38,10 @@ public class CalendarioWaitsSteps extends BaseSteps {
         });
     }
 
-
-    public void waitFechaSeleccionadadaExplicit(){
-        WebElement explicitWait = new WebDriverWait(webDriver,Duration.ofSeconds(30))
-                .until(ExpectedConditions.visibilityOf(calendarioWaitsPage.getSpanMay22()));
-
+    public void waitFechaSeleccionadaExplicit() {
+        WebElement explicitWait = new WebDriverWait(webDriver, Duration.ofSeconds(30))
+                .until(ExpectedConditions.visibilityOf(
+                        calendarioWaitsPage.getSpanMay22()
+                ));
     }
 }
