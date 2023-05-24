@@ -23,19 +23,15 @@ public class DynamicWaitsSteps extends BaseSteps{
     public void abrirPaginaDinamico() {
         webDriver.get("https://demoqa.com/dynamic-properties");
     }
-    public String buttonColor() {
-        WebElement contenidoTexto = dynamicWaitsPage.getbuttonColor();
-        return contenidoTexto.getAttribute("class"); // Revisa por clase , ya que llama a una clase agregar el color rojo
-        //getCssValue("color") rgba(220,53,69,1)
-    }
 
     public void waitButtonTextoColor() {
         Wait<WebDriver> fluentWait = new FluentWait<>(webDriver)
-                .withTimeout(Duration.ofSeconds(60))
+                .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(5))
                 .ignoring(NoSuchElementException.class);
         fluentWait.until(wd -> {
-            return dynamicWaitsPage.getbuttonColor().getAttribute("class");
+            return (dynamicWaitsPage.getbuttonColor().getCssValue("color")).contentEquals("rgba(220, 53, 69, 1)");
+            //Color rgba(220,53,69,1) que en hexadecimal es #dc3545
         });
     }
 

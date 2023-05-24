@@ -10,10 +10,6 @@ public class DynamicTest extends BaseTest{
     @Test(description = "Prueba cambio de color del button Color Change")
     public void buttonTextoColor() {
     dynamicWaitsSteps.abrirPaginaDinamico();
-    String classActual=dynamicWaitsSteps.buttonColor();
-    String classEsperada="mt-4 text-danger btn btn-primary"; // Clase agrega el color "text-danger"
-    System.out.println(classActual +"--"+ classEsperada);
-
     dynamicWaitsSteps.waitButtonTextoColor();
     dynamicWaitsSteps.finalizarWebDriver();
     }
@@ -21,7 +17,6 @@ public class DynamicTest extends BaseTest{
     @Test(description = "Prueba visibilidad del botón Visible after 5 Seconds")
     public void buttonVisibleAfter() {
         dynamicWaitsSteps.abrirPaginaDinamico();
-        String classActual=dynamicWaitsSteps.buttonColor();
         dynamicWaitsSteps.waitButtonVisibleExplicit();
         dynamicWaitsSteps.finalizarWebDriver();
     }
