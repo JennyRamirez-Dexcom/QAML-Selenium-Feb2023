@@ -15,7 +15,6 @@ public class GoogleSteps extends BaseSteps {
 
     public void abrirPaginaGoogle() {
         webDriver.get("https://www.google.com");
-        imprimir("Navegando a Google");
     }
 
     public void navegarPaginaFacebook() {

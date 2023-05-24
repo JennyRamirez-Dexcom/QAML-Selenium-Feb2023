@@ -20,6 +20,7 @@ public class DemoQASteps extends BaseSteps {
 
     DemoQADroppablePage demoQADroppablePage = PageFactory.initElements(webDriver, DemoQADroppablePage.class);
     //DemoQASelectMenuPage demoQASelectMenuPage = new DemoQASelectMenuPage(webDriver);
+    DemoQASelectMenuPage demoQASelectMenuPage = PageFactory.initElements(webDriver, DemoQASelectMenuPage.class);
 
     public void abrirPaginaDemoQA(){
         webDriver.get("https://demoqa.com/text-box/");
@@ -64,54 +65,53 @@ public class DemoQASteps extends BaseSteps {
         webDriver.navigate().to("https://demoqa.com/select-menu");
     }
     //convertir mi lista a un select
-//    public void seleccionarColorPorText(String color){
-//        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
-//        listaColores.selectByVisibleText(color);
-//    }
-//
-//    public String getColorSeleccionado(){
-//        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
-//        return listaColores.getFirstSelectedOption().getText();
-//    }
-//
-//    public void seleccionarColorPorValue(String valor){
-//        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
-//        listaColores.selectByValue(valor);
-//    }
-//    public void seleccionarColorPorIndex(int index){
-//        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
-//        listaColores.selectByIndex(index);
-//    }
-//
-//    private List<WebElement> getOpcionesColores(){
-//        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
-//        return listaColores.getOptions();
-//    }
-//    public void imprimirOpcionesDisponibles(){
-//        for (WebElement o: getOpcionesColores()) {
-//            imprimir(o.getText());
-//        }
-//    }
-//    public void imprimirValoresOpcionesDisponibles(){
-//        for (WebElement o: getOpcionesColores()) {
-//            imprimir(o.getAttribute("value"));
-//        }
-//    }
-//    public void scrollHaciaListaCarros(){
-//        new Actions(webDriver)
-//                .scrollToElement(demoQASelectMenuPage.getListaCarros())
-//                .perform();
-//    }
-//
-//    private List<WebElement> getOpcionesCarros(){
-//        Select listaCarros = new Select(demoQASelectMenuPage.getListaCarros());
-//        return listaCarros.getOptions();
-//    }
-//    public void imprimirOpcionesCarrosDisponibles() {
-//        for (WebElement o : getOpcionesCarros()) {
-//            imprimir(o.getText());
-//        }
-//    }
+    public void seleccionarColorPorText(String color){
+        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
+        listaColores.selectByVisibleText(color);
+    }
+
+    public String getColorSeleccionado(){
+        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
+        return listaColores.getFirstSelectedOption().getText();
+    }
+
+    public void seleccionarColorPorValue(String valor){
+        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
+        listaColores.selectByValue(valor);
+    }
+    public void seleccionarColorPorIndex(int index){
+        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
+        listaColores.selectByIndex(index);
+    }
+
+    private List<WebElement> getOpcionesColores(){
+        Select listaColores = new Select(demoQASelectMenuPage.getListaColores());
+        return listaColores.getOptions();
+    }
+    public void imprimirOpcionesDisponibles(){
+        for (WebElement o: getOpcionesColores()) {imprimir(o.getText());
+        }
+    }
+ public void imprimirValoresOpcionesDisponibles(){
+       for (WebElement o: getOpcionesColores()) {
+            imprimir(o.getAttribute("value"));
+        }
+    }
+    public void scrollHaciaListaCarros(){
+        new Actions(webDriver)
+                .scrollToElement(demoQASelectMenuPage.getListaCarros())
+                .perform();
+    }
+
+    private List<WebElement> getOpcionesCarros(){
+        Select listaCarros = new Select(demoQASelectMenuPage.getListaCarros());
+        return listaCarros.getOptions();
+    }
+    public void imprimirOpcionesCarrosDisponibles() {
+       for (WebElement o : getOpcionesCarros()) {
+            imprimir(o.getText());
+        }
+    }
 
     public void abrirDroppablePage() {
         webDriver.navigate().to("https://demoqa.com/droppable");
@@ -119,8 +119,8 @@ public class DemoQASteps extends BaseSteps {
 
     public void dragAndDrop() {
         dragAndDropElement(
-                demoQADroppablePage.getDivDroppable(),
-                demoQADroppablePage.getDivDraggable()
+                demoQADroppablePage.getDivDragabble(),
+                demoQADroppablePage.getDivContainer()
         );
     }
 }

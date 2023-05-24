@@ -3,19 +3,21 @@ package Steps;
 import Pages.DemoBlazePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DemoBlazeSteps extends BaseSteps{
 
-    private DemoBlazePage demoBlazePage = new DemoBlazePage(webDriver);
+    private DemoBlazePage demoBlazePage = PageFactory.initElements(webDriver,DemoBlazePage.class);
 
     public DemoBlazeSteps(WebDriver driver) {
         super(driver);
     }
 
     public void gettoDemoblazePage(){
+        System.out.println("Test get to page https://www.demoblaze.com/");
         webDriver.get("https://www.demoblaze.com/");
     }
 

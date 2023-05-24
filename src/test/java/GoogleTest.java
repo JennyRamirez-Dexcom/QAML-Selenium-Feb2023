@@ -1,6 +1,7 @@
 import Steps.GoogleSteps;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 public class GoogleTest extends BaseTest {
@@ -12,17 +13,16 @@ public class GoogleTest extends BaseTest {
         googleSteps.abrirPaginaGoogle();
         String urlActual = googleSteps.getURLActual();
         System.out.println("La URL actual es: " + urlActual);
-        Assert.assertEquals(urlActual, "https://www.google.com");
+        Assert.assertEquals(urlActual, "https://www.google.com/");
     }
 
     @Test
     //Ejercicio 2 - Tarea 3
     public void titleGoogleTest() {
         googleSteps.abrirPaginaGoogle();
+        String currentTittle= googleSteps.getTituloActual();
+        Assert.assertEquals(currentTittle, "Google");
 
-        //Titulo usando System.out.println("");
-        //URL
-        //Codigo fuente
     }
 
     @Test
@@ -49,8 +49,6 @@ public class GoogleTest extends BaseTest {
         googleSteps.imprimir(tituloActualFacebook);
         Assert.assertEquals(tituloActualFacebook, tituloExpectedFacebook);
 
-
-        googleSteps.finalizarWebDriver();
     }
 
     @Test
@@ -60,4 +58,10 @@ public class GoogleTest extends BaseTest {
         //googleSteps.clickBuscar();
         googleSteps.enviarEnter();
     }
+
+    @AfterTest
+    public void closeBrowser(){
+        googleSteps.cerrarVentana();
+    }
+
 }

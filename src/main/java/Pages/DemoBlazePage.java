@@ -3,18 +3,17 @@ package Pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class DemoBlazePage extends BasePage{
-    By menuOptions = By.xpath("//a[@id='itemc']");
+public class DemoBlazePage {
 
-    public DemoBlazePage(WebDriver webdriver) {
-        super(webdriver);
-    }
+    @FindBy (xpath = "//a[@id='itemc']")
+    private List<WebElement> menuOptions;
 
     public List<WebElement> findDemoBlazeMenuOptionsList(){
-        return webdriver.findElements(menuOptions);
+        return menuOptions;
     }
 
 

@@ -2,9 +2,11 @@ package Steps;
 
 import Pages.DemoQADroppablePage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 public class DemoQADroppableSteps extends BaseSteps{
-    private DemoQADroppablePage demoQADroppablePage = new DemoQADroppablePage(webDriver);
+    //private DemoQADroppablePage demoQADroppablePage = new DemoQADroppablePage(webDriver);
+    private DemoQADroppablePage demoQADroppablePage = PageFactory.initElements(webDriver, DemoQADroppablePage.class);
 
     public DemoQADroppableSteps(WebDriver driver) {
         super(driver);

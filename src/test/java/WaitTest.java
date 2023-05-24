@@ -24,6 +24,4 @@ public class WaitTest extends BaseTest{
     }
 
 
-
-
 }
