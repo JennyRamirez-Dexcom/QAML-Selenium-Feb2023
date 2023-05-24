@@ -14,14 +14,14 @@ public class BaseTest {
     private WebDriver webDriver;
 
     protected WebDriver getWebDriver() {
-        String rutaFireFoxDriver= getProperty("CHROME_DRIVER_PATH");
+        String rutaChromeDriver= getProperty("CHROME_DRIVER_PATH");
         //File ruta = new File("/Users/INETUM-1443/Documents/PracticaAuto/controladoresNavegador/chromedriver.exe");
-        File ruta = new File(getProperty());
+        File ruta = new File(rutaChromeDriver);
         System.setProperty("webdriver.chromedriver", ruta.getPath());
-        ChromeOptions opciones = new ChromeOptions();
-        //opciones.addArguments("--incognito");
-        opciones.addArguments("--remote-allow-origins=*");
-        webDriver = new ChromeDriver(opciones);
+       // ChromeOptions opciones = new ChromeOptions();
+        //webDriver.addArguments("--incognito");
+        //opciones.addArguments("--remote-allow-origins=*");
+        webDriver = new ChromeDriver();
         return webDriver;// Devuelve
     }
 
