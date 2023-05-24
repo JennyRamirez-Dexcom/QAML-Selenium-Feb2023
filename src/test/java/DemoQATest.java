@@ -14,6 +14,7 @@ public class DemoQATest extends BaseTest{
     private String demoQADroppedMessage= "Dropped!";
 
 
+
     @BeforeTest(description = "Precondiciones para las pruebas de DemoQATest",
     alwaysRun = true)
     public void beforeDemoQATests() {
@@ -48,11 +49,31 @@ public class DemoQATest extends BaseTest{
         demoQASteps.dragAndDrop();
     }
 
+    @Test (description = "validate dinamic properties", priority = 4)
+    public void validateTestColorChangedToRed(){
+        demoQASteps.abrirDynamicPropertiesPage();
+        String currentcolor = demoQASteps.getcolorchangeTextColor();
+        Assert.assertEquals(currentcolor,"#ffffff");
+        demoQASteps.waitForVisibleAfter5SecondsTextToBeInputcolor("#dc3545");
+        currentcolor = demoQASteps.getcolorchangeTextColor();
+        Assert.assertEquals(currentcolor,"#dc3545");
+    }
+
+    @Test(description = "Vlidate For 'Visible After 5 Seconds' Button to Be Displayed", priority = 5)
+    public void VisibleAfter5SecondsButtontoIsDisplayed(){
+        demoQASteps.abrirDynamicPropertiesPage();
+        demoQASteps.waitForVisibleAfter5SecondsButtontoBeDisplayed();
+        Assert.assertEquals(demoQASteps.visibleAfter5MinutesISDisplayed(),true);
+    }
+
+
     @AfterTest(description = "Metodo para ejecutar despues de cualquier test",
     alwaysRun = true)
     public void afterDemoQATests() {
         demoQASteps.imprimir("@AfterTest");
         demoQASteps.finalizarWebDriver();
     }
+
+
 
 }

@@ -1,15 +1,19 @@
 package Steps;
 
 import Pages.DemoQADroppablePage;
+import Pages.DemoQADynamicPropertiesPage;
 import Pages.DemoQASelectMenuPage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.*;
 
+import java.time.Duration;
 import java.util.List;
 
 public class DemoQASteps extends BaseSteps {
@@ -19,8 +23,8 @@ public class DemoQASteps extends BaseSteps {
     }
 
     DemoQADroppablePage demoQADroppablePage = PageFactory.initElements(webDriver, DemoQADroppablePage.class);
-    //DemoQASelectMenuPage demoQASelectMenuPage = new DemoQASelectMenuPage(webDriver);
     DemoQASelectMenuPage demoQASelectMenuPage = PageFactory.initElements(webDriver, DemoQASelectMenuPage.class);
+    DemoQADynamicPropertiesPage demoQADynamicPropertiesPage = PageFactory.initElements(webDriver, DemoQADynamicPropertiesPage.class);
 
     public void abrirPaginaDemoQA(){
         webDriver.get("https://demoqa.com/text-box/");
@@ -117,10 +121,47 @@ public class DemoQASteps extends BaseSteps {
         webDriver.navigate().to("https://demoqa.com/droppable");
     }
 
+    public void abrirDynamicPropertiesPage(){
+        webDriver.get("https://demoqa.com/dynamic-properties");
+    }
+
     public void dragAndDrop() {
         dragAndDropElement(
                 demoQADroppablePage.getDivDragabble(),
                 demoQADroppablePage.getDivContainer()
         );
+    }
+
+    public String getcolorchangeTextColor(){
+        String rgbColor = demoQADynamicPropertiesPage.getColorchangeButton().getCssValue("color");
+        return Color.fromString(rgbColor).asHex();
+    }
+
+
+    public void waitForVisibleAfter5SecondsTextToBeInputcolor(String color){
+        waitForElementuttonTextToBeRed(color);
+    }
+
+    private void waitForElementuttonTextToBeRed(String colorIn) {
+        Wait<WebDriver> fluentWait = new FluentWait<>(webDriver)
+                .withTimeout(Duration.ofSeconds(10))
+                .pollingEvery(Duration.ofSeconds(5))
+                .ignoring(NoSuchElementException.class);
+
+        fluentWait.until(webDriver1 -> {
+            String currentColor = demoQADynamicPropertiesPage.getColorchangeButton().getCssValue("color");
+            currentColor = Color.fromString(currentColor).asHex();
+            return currentColor.equals(colorIn);
+        });
+    }
+
+    public void waitForVisibleAfter5SecondsButtontoBeDisplayed(){
+        WebElement explicitWait = new WebDriverWait(webDriver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.visibilityOf(demoQADynamicPropertiesPage.getVisibleAfter5SecondsButton()));
+    }
+
+    public boolean visibleAfter5MinutesISDisplayed() {
+        return isCorrectlyDisplayedElement(demoQADynamicPropertiesPage.getVisibleAfter5SecondsButton());
+
     }
 }
