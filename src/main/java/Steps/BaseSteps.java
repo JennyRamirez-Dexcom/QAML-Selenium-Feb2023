@@ -2,7 +2,10 @@ package Steps;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
 
 public class BaseSteps {
     public WebDriver webDriver;
@@ -37,10 +40,44 @@ public class BaseSteps {
     }
 
     public void scrollToElementJS(WebElement element) {
+
+        //No es necesario maximizar la ventana
+
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
     public void maximizarVentana() {
         webDriver.manage().window().maximize();
     }
+
+
+    public void scrollToElement(WebElement element) {
+        new Actions(webDriver)
+                .scrollToElement(element)
+                .perform();// <- Luz verde para ejecutar la/las acciones
+    }
+
+    public void moveToElementClickDragDrop(WebElement elementDroppable,
+                                           WebElement drag) {
+        int y = elementDroppable.getLocation().y;
+        int x = elementDroppable.getLocation().x;
+        int sizey = elementDroppable.getSize().height;
+        int sizex = elementDroppable.getSize().width;
+
+        int coordx = x + sizex/2; //esto se pone asi porque quiero que el punto donde lo agarre sea el centro de la imagen
+        //y no una esquina
+        int coordy = y + sizey/2;
+
+        new Actions(webDriver)
+                .dragAndDropBy(drag, coordx, coordy)
+                .perform();
+    }
+
+    public void dragAndDropElement(WebElement elementDrop,
+                                   WebElement drag) {
+        new Actions(webDriver)
+                .dragAndDrop(drag, elementDrop) //dropea un elemento encima de otro
+                .perform();
+    }
+
 }
