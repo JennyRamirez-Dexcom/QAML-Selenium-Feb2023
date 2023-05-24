@@ -10,6 +10,7 @@ import java.util.Properties;
 public class BaseTest {
     protected WebDriver webDriver;
 
+
     //Siempre private o protected NO PUBLIC
     protected WebDriver getWebDriver() {
         String rutaFireFoxDriver = getProperty("FIREFOX_DRIVER_PATH");
@@ -20,18 +21,20 @@ public class BaseTest {
         return webDriver;
     }
 
-    public String getProperty(String key) {
+    public String getProperty(String key){
         Properties properties = new Properties();
-        InputStream inputStream;
+        InputStream inputStream = null;
         String propertyValue = null;
+
         try{
-            inputStream = new FileInputStream("/Users/jxr20920/QAML-Feb2023/QAML-Selenium-May-6/settings.properties");
+            inputStream = new FileInputStream("C:\\Users\\memo_\\OneDrive\\Documentos\\QAML-Selenium-Feb2023\\setting.properties");
             properties.load(inputStream);
             propertyValue = properties.getProperty(key);
             inputStream.close();
-        } catch (IOException ioException) {
+        }
+        catch(IOException ioException){
+            System.out.println(ioException.getMessage());
 
-        } finally {
 
         }
         return propertyValue;
