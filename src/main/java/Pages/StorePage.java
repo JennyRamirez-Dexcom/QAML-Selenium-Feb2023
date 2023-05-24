@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class StorePage extends BasePage{
-    public StorePage(WebDriver driver){
-        super(driver);
-    }
+//    public StorePage(WebDriver driver){
+//        super(driver);
+//    }
     public WebElement PhonesCategorie(){
         return webDriver.findElement(By.xpath("//div[@class='list-group']/child::a[2]"));
     }

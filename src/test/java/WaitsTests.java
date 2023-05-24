@@ -10,6 +10,7 @@ public class WaitsTests extends BaseTest{
     public void calendarioWaitTest(){
         calendarioWaitsSteps.abrirPaginaCalendario();
         calendarioWaitsSteps.clickMay22();
+        //Fluent Wait
         calendarioWaitsSteps.waitFechaSeleccionada();
         calendarioWaitsSteps.finalizarWebDriver();
     }
@@ -19,6 +20,7 @@ public class WaitsTests extends BaseTest{
         calendarioWaitsSteps.abrirPaginaCalendario();
         calendarioWaitsSteps.clickMay22();
 //        calendarioWaitsSteps.waitFechaSeleccionada();
+        //Explicit Wait
         calendarioWaitsSteps.waitFechaSeleccionadadaExplicit();
         calendarioWaitsSteps.finalizarWebDriver();
     }

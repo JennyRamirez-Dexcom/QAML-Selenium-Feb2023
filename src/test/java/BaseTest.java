@@ -7,17 +7,20 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-
 public class BaseTest {
     protected WebDriver webDriver;
 
+
+    //Siempre private o protected NO PUBLIC
     protected WebDriver getWebDriver() {
-        File ruta = new File(getProperty("FIREFOX_DRIVER_PATH"));
-        System.setProperty("webDriver.gecko.driver", ruta.getPath());
+        String rutaFireFoxDriver = getProperty("FIREFOX_DRIVER_PATH");
+        File ruta = new File(rutaFireFoxDriver);
+        System.setProperty("webdriver.gecko.driver", ruta.getPath());
         //System.setProperty("webdriver.chrome.driver", ruta.getPath());
         webDriver = new FirefoxDriver();
         return webDriver;
     }
+
     public String getProperty(String key){
         Properties properties = new Properties();
         InputStream inputStream = null;
@@ -31,6 +34,7 @@ public class BaseTest {
         }
         catch(IOException ioException){
             System.out.println(ioException.getMessage());
+
 
         }
         return propertyValue;

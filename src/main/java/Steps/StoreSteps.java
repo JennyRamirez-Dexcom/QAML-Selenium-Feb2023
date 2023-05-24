@@ -9,7 +9,8 @@ public class StoreSteps extends BaseSteps{
     public StoreSteps (WebDriver driver){
         super(driver);
     }
-    StorePage storePage = new StorePage(webDriver);
+    //StorePage storePage = new StorePage(webDriver);
+    StorePage storePage = new StorePage();
     public void setUpStore(){
         webDriver.get("https://www.demoblaze.com/");
         webDriver.manage().window().maximize();

@@ -13,7 +13,7 @@ public class CalendarioWaitsPage{
     @FindBy(xpath="//td[@title='Monday, May 22, 2023']")
     private WebElement tdMay22;
 
-    @FindBy(xpath="//td[@title='Monday, May 22, 2023']")
+    @FindBy(xpath="//span[text()='Monday, May 22, 2023']")
     private WebElement spanMay22;
 
     public WebElement getTdMay22(){
@@ -23,5 +23,6 @@ public class CalendarioWaitsPage{
     public WebElement getSpanMay22(){
         return spanMay22;
     }
+
 
 }
