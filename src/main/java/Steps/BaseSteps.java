@@ -1,10 +1,12 @@
 package Steps;
 
+
 import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 
 public class BaseSteps {
     public WebDriver webDriver;
@@ -47,6 +49,7 @@ public class BaseSteps {
         webDriver.manage().window().maximize();
     }
 
+
     public void scrollToElement(WebElement element) {
         new Actions(webDriver)
                 .scrollToElement(element)
@@ -82,4 +85,5 @@ public class BaseSteps {
             return false;
         }
     }
+
 }
