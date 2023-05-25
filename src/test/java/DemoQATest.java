@@ -1,7 +1,5 @@
 import Steps.DemoQASteps;
-import Steps.GoogleSteps;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -70,6 +68,7 @@ public class DemoQATest extends BaseTest{
         demoQASteps.enviarPermanentAddress("Calle Permanente, Colonia Permanente, 67890");
     }
 
+
 //    @Test(description = "Test para arrastrar un div y soltarlo en otro div", priority = 1)
 //    public void practica4_Select(){
 //        demoQASteps.abrirPaginaDemoQA();
@@ -109,5 +108,4 @@ public class DemoQATest extends BaseTest{
         demoQASteps.imprimir("@AfterTest");
         demoQASteps.finalizarWebDriver();
     }
-
 }
