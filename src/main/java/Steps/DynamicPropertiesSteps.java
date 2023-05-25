@@ -2,6 +2,7 @@ package Steps;
 
 import Pages.CalendarioWaitsPage;
 import Pages.DynamicPropertiesPage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -26,7 +27,7 @@ public class DynamicPropertiesSteps extends  BaseSteps{
     }
 
     public void waitVisibleElement(){
-        Wait<WebDriver> fluentWait = new FluentWait<>(webDriver).withTimeout(Duration.ofSeconds((long) 5.7))
+        Wait<WebDriver> fluentWait = new FluentWait<>(webDriver).withTimeout(Duration.ofSeconds((long) 5))
                 .pollingEvery(Duration.ofSeconds((long) 0.1)).ignoring(NoSuchElementException.class); //se checa 30 veces
         fluentWait.until(wd ->{
 
@@ -35,12 +36,12 @@ public class DynamicPropertiesSteps extends  BaseSteps{
     }
 
     public void waitChangeFontColor(){
-        Wait<WebDriver> fluentWait = new FluentWait<>(webDriver).withTimeout(Duration.ofSeconds((long) 5.7))
+
+        Wait<WebDriver> fluentWait = new FluentWait<>(webDriver).withTimeout(Duration.ofSeconds((long) 5))
                 .pollingEvery(Duration.ofSeconds((long) 0.1)).ignoring(NoSuchElementException.class); //se checa 30 veces
         fluentWait.until(wd ->{
 
-            return Color.fromString(dynamicPropertiesPage.getcolorChangeButton().getCssValue("font-color")).asHex()
-                    == "#dc3545";
+            return Color.fromString(dynamicPropertiesPage.getcolorChangeButton().getCssValue("color")).asHex().contains("#dc3545");
         });
     }
 }
