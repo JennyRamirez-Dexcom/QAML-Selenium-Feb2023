@@ -1,4 +1,6 @@
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.File;
@@ -14,9 +16,17 @@ public class BaseTest {
     protected WebDriver getWebDriver() {
         String rutaFireFoxDriver = getProperty("FIREFOX_DRIVER_PATH");
         File ruta = new File(rutaFireFoxDriver);
-        System.setProperty("webdriver.gecko.driver", ruta.getPath());
+        System.setProperty("webdriver.chrome.driver", ruta.getPath());
+
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--incognito");
+        options.addArguments("--remote-allow-origins=*");
+        webDriver = new ChromeDriver(options);
+
+
         //System.setProperty("webdriver.chrome.driver", ruta.getPath());
-        webDriver = new FirefoxDriver();
+
         return webDriver;
     }
 
@@ -25,7 +35,7 @@ public class BaseTest {
         InputStream inputStream;
         String propertyValue = null;
         try{
-            inputStream = new FileInputStream("/Users/jxr20920/QAML-Feb2023/QAML-Selenium-May-6/settings.properties");
+            inputStream = new FileInputStream("C:\\Users\\Suri Sinai\\Documents\\nuevaCarpetaGit\\QAML-Selenium-Feb2023\\settings.properties");
             properties.load(inputStream);
             propertyValue = properties.getProperty(key);
             inputStream.close();
