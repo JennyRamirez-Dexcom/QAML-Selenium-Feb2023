@@ -10,7 +10,6 @@ public class StoreSteps extends BaseSteps{
     public StoreSteps (WebDriver driver){
         super(driver);
     }
-
     StorePage storePage = PageFactory.initElements(webDriver, StorePage.class);
 
     public void setUpStore(){
@@ -19,7 +18,7 @@ public class StoreSteps extends BaseSteps{
         imprimir("Navegando en Store");
     }
     public boolean verifyIsPhonesCategory(){
-        WebElement phones = storePage.PhonesCategorie();
+        WebElement phones = storePage.phonesCategorie();
         imprimir("Phones Categorie is Displayed: " + phones.isDisplayed());
         return isCorrectlyDisplayedElement(phones);
     }
