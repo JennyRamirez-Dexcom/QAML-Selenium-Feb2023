@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default Suite" duration-ms="8732" started-at="2023-05-27T14:10:54 CDT" finished-at="2023-05-27T14:11:02 CDT">
+    <groups>
+    </groups>
+    <test name="QAML-Selenium-Feb2023" duration-ms="8732" started-at="2023-05-27T14:10:54 CDT" finished-at="2023-05-27T14:11:02 CDT">
+      <class name="DemoBlazeTest">
+        <test-method status="PASS" signature="AllRequirements()[pri:0, instance:DemoBlazeTest@4bff64c2]" name="AllRequirements" duration-ms="8696" started-at="2023-05-27T14:10:54 CDT" description="All flows" finished-at="2023-05-27T14:11:02 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AllRequirements -->
+      </class> <!-- DemoBlazeTest -->
+    </test> <!-- QAML-Selenium-Feb2023 -->
+  </suite> <!-- Default Suite -->
+</testng-results>
