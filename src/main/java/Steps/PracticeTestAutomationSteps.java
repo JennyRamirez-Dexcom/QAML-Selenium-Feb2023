@@ -9,29 +9,29 @@ public class PracticeTestAutomationSteps extends BaseSteps{
     public PracticeTestAutomationSteps(WebDriver driver) {
         super(driver);
     }
-    public void abrirPracticeTestAutomation() {
+    public void abrirPracticeTestAutomation(String pagina) {
         webDriver.get("https://practicetestautomation.com/practice-test-login/");
     }
-    public void capturarUsuario(){
+    public void capturarUsuario(String UserName){
         WebElement username = webDriver.findElement(
                 By.id("username")
         );
-        username.sendKeys("student");
+        username.sendKeys(UserName);
     }
-    public void capturarPassword(){
+    public void capturarPassword(String Password){
         WebElement password = webDriver.findElement(
                 By.id("password")
         );
-        password.sendKeys("Password123");
+        password.sendKeys(Password);
     }
     public void clickOnSubmit(){
         WebElement submit = webDriver.findElement(By.id("submit"));
         submit.click();
     }
 
-    public void VerifyURLContent(){
+    public void VerifyURLContent(String textoDeseado){
         String practiceTestAutomationURL = webDriver.getCurrentUrl();
-        String textoDeseado = "practicetestautomation.com/logged-in-successfully/";
+        //String textoDeseado = "practicetestautomation.com/logged-in-successfully/";
 
         if (practiceTestAutomationURL.contains(textoDeseado)){
             System.out.println("URL SI contiene texto deseado");
