@@ -100,4 +100,9 @@ public class DemoQASteps extends BaseSteps{
                 demoQADroppablePage.getDivDraggable()
         );
     }
+
+    public String returnDroppedText(){
+        String droppedText = demoQADroppablePage.getDroppedText().getText();
+        return droppedText;
+    }
 }

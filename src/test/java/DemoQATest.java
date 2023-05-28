@@ -70,6 +70,9 @@ public class DemoQATest extends BaseTest{
         demoQASteps.abrirPaginaDemoQA();
         demoQASteps.abrirDroppablePage();
         demoQASteps.dragAndDrop();
+        String actualText = demoQASteps.returnDroppedText();
+        String expectedText = "Dropped!";
+        Assert.assertEquals(actualText, expectedText);
         demoQASteps.finalizarWebDriver();
     }
 }
