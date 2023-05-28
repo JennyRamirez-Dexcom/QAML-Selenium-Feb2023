@@ -3,14 +3,16 @@ package Steps;
 import Pages.StorePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class StoreSteps extends BaseSteps{
     public StoreSteps (WebDriver driver){
         super(driver);
     }
-    //StorePage storePage = new StorePage(webDriver);
-    StorePage storePage = new StorePage();
+
+    StorePage storePage = PageFactory.initElements(webDriver, StorePage.class);
+
     public void setUpStore(){
         webDriver.get("https://www.demoblaze.com/");
         webDriver.manage().window().maximize();
