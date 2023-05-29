@@ -1,12 +1,14 @@
 package Pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
 
 import java.util.List;
 
 public class ProyectoFinalPage {
-    @FindBy(xpath = "//*[@id='tbodyid']/div[1]")
+    @FindBy(xpath = "//*[@id='tbodyid']/div[1]/div/a")
     private WebElement firstItemCard;
 
     @FindBy(xpath ="//*[@id='imgp']/div/img")
@@ -30,10 +32,10 @@ public class ProyectoFinalPage {
     @FindBy( xpath = "//*[text()='Total']")
     private WebElement totalh2Title;
 
-    @FindBy( id = "totalp")
+    @FindBy( xpath = "//*[@class='panel-heading']/h3")
     private WebElement totalh3Value;
 
-    @FindBy( xpath = "//[@class='success']")
+    @FindBy( xpath = "//*[@id='tbodyid']//descendant::tr")
     private List<WebElement> cartItems;
 
     public WebElement getFirstItemCard(){

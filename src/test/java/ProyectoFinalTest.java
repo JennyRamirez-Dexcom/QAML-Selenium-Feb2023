@@ -24,7 +24,7 @@ public class ProyectoFinalTest extends BaseTest{
         //"SR-12130"
         proyectoFinalSteps.cartLinkClicked();
         Assert.assertEquals(proyectoFinalSteps.getURLActual(), "https://www.demoblaze.com/cart.html");
-        proyectoFinalSteps.showingCartButtonFirstElement();
+        proyectoFinalSteps.showingPlaceOrderButton();
         proyectoFinalSteps.totalElements();
         proyectoFinalSteps.cartItemDetails();
         proyectoFinalSteps.finalizarWebDriver();
