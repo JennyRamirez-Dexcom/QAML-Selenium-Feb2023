@@ -38,8 +38,8 @@ public class BaseSteps {
         System.out.println(cadenaAImprimir);
     }
 
-
     public void scrollToElementJS(WebElement element) {
+        //No es necesario maximizar la ventana
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
