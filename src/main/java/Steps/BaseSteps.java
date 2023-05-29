@@ -74,4 +74,12 @@ public class BaseSteps {
                 .dragAndDrop(drag, elementDrop)
                 .perform();
     }
+
+    public boolean isCorrectlyDisplayedElement(WebElement element){
+        if(element.isDisplayed()){
+            return true;
+        }else {
+            return false;
+        }
+    }
 }
