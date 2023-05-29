@@ -13,22 +13,6 @@ import java.util.Properties;
 public class BaseTest {
     protected WebDriver webDriver;
 
-    protected WebDriver getWebDriver(){
-        //File rootPath = new File("C:/Arkangel/Instaladores/geckodriver-v0.33.0-win64/geckodriver.exe");
-        //System.setProperty("webdriver.gecko.driver",rootPath.getPath());
-        //webDriver = new FirefoxDriver();
-
-        String rutaChromeDriver = getProperty("CHROME_DRIVER_PATH");
-        //File rootPath = new File("C:/Arkangel/Instaladores/chromedriver_win32/chromedriver.exe");
-        File rootPath = new File(rutaChromeDriver);
-        System.setProperty("webdriver.chrome.driver",rootPath.getPath());
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--incognito");
-        options.addArguments("--remote-allow-origins=*");
-        webDriver = new ChromeDriver(options);
-        return webDriver;
-    }
-
     public String getProperty(String key){
         Properties properties = new Properties();
         InputStream input = null;
@@ -48,4 +32,20 @@ public class BaseTest {
         return propertyValue;
     }
 
+    protected WebDriver getWebDriver(){
+        /* String rutaFireFox = getProperty("FIREFOX_DRIVER_PATH");
+        File rootPath = new File(rutaFireFox);
+        System.setProperty("webdriver.gecko.driver",rootPath.getPath());
+        webDriver = new FirefoxDriver();*/
+
+        String rutaChromeDriver = getProperty("CHROME_DRIVER_PATH");
+        File rootPath = new File(rutaChromeDriver);
+        System.setProperty("webdriver.chrome.driver",rootPath.getPath());
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--incognito");
+        options.addArguments("--remote-allow-origins=*");
+        webDriver = new ChromeDriver(options);
+
+        return webDriver;
+    }
 }
