@@ -1,16 +1,20 @@
 package Steps;
 
 import Pages.DemoQADroppablePage;
+import Pages.DemoQADynamicPropertiesPage;
 import Pages.DemoQASelectMenuPage;
 import net.bytebuddy.implementation.bytecode.ShiftRight;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.swing.*;
+import java.time.Duration;
 import java.util.List;
 
 public class DemoQASteps extends BaseSteps{
@@ -22,6 +26,8 @@ public class DemoQASteps extends BaseSteps{
     DemoQASelectMenuPage demoQASelectMenuPage = PageFactory.initElements(webDriver, DemoQASelectMenuPage.class);//Start PageFactory
 
     DemoQADroppablePage demoQADroppablePage = PageFactory.initElements(webDriver, DemoQADroppablePage.class);//Start PageFactory
+
+    DemoQADynamicPropertiesPage demoQADynamicPropertiesPage = PageFactory.initElements(webDriver, DemoQADynamicPropertiesPage.class);//Start PageFactory
 
     public void abrirPaginaDemoQA(){
         webDriver.get("https://demoqa.com/text-box/");
@@ -125,5 +131,27 @@ public class DemoQASteps extends BaseSteps{
                 demoQADroppablePage.getDivDroppable(),
                 demoQADroppablePage.getDivDraggable()
         );
+    }
+
+    public void abrirDynamicPropertiesPage(){
+        webDriver.get("https://demoqa.com/dynamic-properties");
+    }
+
+    public void waitColorChangedButton(){
+        WebElement explicitWait = new WebDriverWait(webDriver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.visibilityOf(demoQADynamicPropertiesPage.getColorChangedButton()));
+    }
+
+    public void colorChangedButtonIsDisplayed(){
+        demoQADynamicPropertiesPage.getColorChangedButton().isDisplayed();
+    }
+
+    public void waitVisibleAfter5SecondsButton(){
+        WebElement explicitWait = new WebDriverWait(webDriver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.visibilityOf(demoQADynamicPropertiesPage.getVisibleAfter5SecondsButton()));
+    }
+
+    public void visibleAfter5SecondsIsDisplayed(){
+        demoQADynamicPropertiesPage.getVisibleAfter5SecondsButton().isDisplayed();
     }
 }

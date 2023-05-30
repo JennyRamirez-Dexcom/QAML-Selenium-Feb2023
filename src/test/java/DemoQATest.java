@@ -62,6 +62,15 @@ public class DemoQATest extends BaseTest{
         demoQASteps.dragAndDrop();
     }
 
+    @Test(description = "Practica 9")
+    public void practica9Waits(){
+        demoQASteps.abrirDynamicPropertiesPage();
+        demoQASteps.waitColorChangedButton();
+        demoQASteps.colorChangedButtonIsDisplayed();
+        demoQASteps.waitVisibleAfter5SecondsButton();
+        demoQASteps.visibleAfter5SecondsIsDisplayed();
+    }
+
     @AfterTest(description = "Metodo para ejecutar despues de cualquier test", alwaysRun = true)
     public void afterDemoQATest(){
         demoQASteps.imprimir("@AfterTest");
