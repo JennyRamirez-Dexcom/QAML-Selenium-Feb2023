@@ -57,7 +57,7 @@ public class DemoQASteps extends BaseSteps {
     }
 
     public void clickSubmit(){
-        WebElement botonSubmit = webDriver.findElement(By.cssSelector("button[id='submit']"));
+        WebElement botonSubmit = webDriver.findElement(By.cssSelector("//button[id='submit']"));
         botonSubmit.click();
     }
     public void navegarSelectMenuPage(){

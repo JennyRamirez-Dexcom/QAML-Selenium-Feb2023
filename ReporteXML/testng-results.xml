@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Demo Proyecto Test" duration-ms="22097" started-at="2023-05-29T21:23:36 CDT" finished-at="2023-05-29T21:23:58 CDT">
+    <groups>
+    </groups>
+    <test name="/Users/jxr20920/QAML-Feb2023/QAML-Selenium-May-6" duration-ms="22097" started-at="2023-05-29T21:23:36 CDT" finished-at="2023-05-29T21:23:58 CDT">
+      <class name="DemoProyectoTest">
+        <test-method status="PASS" signature="beforeDemoQATests()[pri:0, instance:DemoProyectoTest@3381b4fc]" name="beforeDemoQATests" is-config="true" duration-ms="1680" started-at="2023-05-29T21:23:36 CDT" description="Inicio página" finished-at="2023-05-29T21:23:38 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeDemoQATests -->
+        <test-method status="PASS" signature="productoCatologoDetalle()[pri:0, instance:DemoProyectoTest@3381b4fc]" name="productoCatologoDetalle" duration-ms="3138" started-at="2023-05-29T21:23:38 CDT" description="SR-12120-Productos del catálogo que se muestren elementos" finished-at="2023-05-29T21:23:41 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- productoCatologoDetalle -->
+        <test-method status="PASS" signature="mensajeAgregarProducto()[pri:1, instance:DemoProyectoTest@3381b4fc]" name="mensajeAgregarProducto" duration-ms="5122" started-at="2023-05-29T21:23:41 CDT" description="SR-12121-Agregar producto,Confirmar mensaje" finished-at="2023-05-29T21:23:46 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- mensajeAgregarProducto -->
+        <test-method status="PASS" signature="verListaCompras()[pri:2, instance:DemoProyectoTest@3381b4fc]" name="verListaCompras" duration-ms="11440" started-at="2023-05-29T21:23:46 CDT" description="SR-12130-Al hacer clic en el enlace del carrito, se mostrará listado articulos comprados" finished-at="2023-05-29T21:23:58 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verListaCompras -->
+        <test-method status="PASS" signature="afterDemoQATests()[pri:0, instance:DemoProyectoTest@3381b4fc]" name="afterDemoQATests" is-config="true" duration-ms="690" started-at="2023-05-29T21:23:58 CDT" description="Metodo finaliza el WebDrive" finished-at="2023-05-29T21:23:58 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterDemoQATests -->
+      </class> <!-- DemoProyectoTest -->
+    </test> <!-- /Users/jxr20920/QAML-Feb2023/QAML-Selenium-May-6 -->
+  </suite> <!-- Demo Proyecto Test -->
+</testng-results>
