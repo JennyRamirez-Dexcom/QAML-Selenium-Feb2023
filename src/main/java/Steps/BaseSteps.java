@@ -9,36 +9,36 @@ public class BaseSteps {
     public WebDriver webDriver;
 
     //Constructor
-    public BaseSteps(WebDriver driver) {
+    public BaseSteps(WebDriver driver){
         this.webDriver = driver;
     }
 
-    public String getURLActual() {
+    public String getUrlActual(){
         return webDriver.getCurrentUrl();
     }
 
-    public String getTituloActual() {
+    public String getTituloActual(){
         return webDriver.getTitle();
     }
 
-    public void cerrarVentana() {
+    public void cerrarVentana(){
         webDriver.close();
     }
 
-    public String getCodigoFuente() {
+    public String getCodigoFuente(){
         return webDriver.getPageSource();
     }
 
-    public void finalizarWebDriver() {
+    public void finalizarWebDriver(){
         webDriver.quit();
     }
 
-    public void imprimir(String cadenaAImprimir) {
+    public void imprimir(String cadenaAImprimir){
         System.out.println(cadenaAImprimir);
     }
 
-
     public void scrollToElementJS(WebElement element) {
+        //No es necesario maximizar la ventana
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", element);
     }
 
@@ -52,8 +52,7 @@ public class BaseSteps {
                 .perform();// <- Luz verde para ejecutar la/las acciones
     }
 
-    public void moveToElementClickDragDrop(WebElement elementDroppable,
-                                           WebElement drag) {
+    public void moveToElementClickDragDrop(WebElement elementDroppable, WebElement drag) {
         int y = elementDroppable.getLocation().y;
         int x = elementDroppable.getLocation().x;
         int sizey = elementDroppable.getSize().height;
@@ -67,8 +66,7 @@ public class BaseSteps {
                 .perform();
     }
 
-    public void dragAndDropElement(WebElement elementDrop,
-                                   WebElement drag) {
+    public void dragAndDropElement(WebElement elementDrop, WebElement drag) {
         new Actions(webDriver)
                 .dragAndDrop(drag, elementDrop)
                 .perform();
