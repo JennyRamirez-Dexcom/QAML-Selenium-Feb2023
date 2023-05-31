@@ -1,11 +1,12 @@
 package Steps;
 
+import Pages.DemoBlazeHeaderPage;
 import Pages.DemoBlazeIndexPage;
 import Pages.DemoBlazeProdPage;
+import Pages.DemoBlazeShoppingCartPage;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.Color;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
@@ -18,6 +19,8 @@ import java.util.List;
 public class DemoBlazeSteps extends BaseSteps{
     DemoBlazeIndexPage demoBlazeIndexPage = PageFactory.initElements(webDriver, DemoBlazeIndexPage.class);
     DemoBlazeProdPage demoBlazeProdPage = PageFactory.initElements(webDriver, DemoBlazeProdPage.class);
+    DemoBlazeHeaderPage demoBlazeHeaderPage = PageFactory.initElements(webDriver, DemoBlazeHeaderPage.class);
+    DemoBlazeShoppingCartPage demoBlazeShoppingCartPage = PageFactory.initElements(webDriver, DemoBlazeShoppingCartPage.class);
 
     public DemoBlazeSteps(WebDriver driver) {
         super(driver);
@@ -86,6 +89,32 @@ public class DemoBlazeSteps extends BaseSteps{
         return demoBlazeProdPage.getImageRef().isDisplayed();
     }
 
+    public void clickAddToCart(){
+        demoBlazeProdPage.getAddToCartBtn().click();
+    }
+
+     public String getTextFromAlert(){
+        return getAlert().getText();
+     }
+
+     public void getToDemoblazeProductPage(){
+        webDriver.navigate().to("https://www.demoblaze.com/prod.html?idp_=7#");
+     }
+
+    public void goToCartMenuOption(){
+        demoBlazeHeaderPage.getCartMenuOotion().click();
+    }
+
+    public void getListOfItemsInShoppingCart(){
+        List<WebElement> devicesToPurchaseList =  demoBlazeShoppingCartPage.getShoppingCartDevicesList();
+        System.out.println(devicesToPurchaseList.size());
+    }
+
+    public boolean placeOrderBtnIsDisplayed(){
+        WebElement explicitWait = new WebDriverWait(webDriver, Duration.ofSeconds(5))
+                .until(ExpectedConditions.visibilityOf(demoBlazeShoppingCartPage.getPlaceOrderBtn()));
+        return demoBlazeShoppingCartPage.getPlaceOrderBtn().isDisplayed();
+    }
 
 
 }
