@@ -23,6 +23,9 @@ public class CalendarioWaitsSteps extends BaseSteps {
         webDriver.get("https://demos.telerik.com/aspnet-ajax/ajaxloadingpanel/functionality/explicit-show-hide/defaultcs.aspx");
     }
 
+    public void abrirPaginaEnableBox(){
+        webDriver.get("https://demoqa.com/dynamic-properties");
+    }
     public void clickMay22() {
         calendarioWaitsPage.getTdMay22().click();
     }
@@ -43,5 +46,17 @@ public class CalendarioWaitsSteps extends BaseSteps {
                 .until(ExpectedConditions.visibilityOf(
                         calendarioWaitsPage.getSpanMay22()
                 ));
+    }
+
+    public void delayBoxEnable(){
+        WebElement boxEnable = new WebDriverWait(webDriver , Duration.ofSeconds(10)).
+                until(ExpectedConditions.visibilityOf(calendarioWaitsPage.getBoxEnable()
+                ));
+
+    }
+
+    public String appearsColorChangeBox(){
+        String colorChange= calendarioWaitsPage.getColorChange().getText();
+        return colorChange;
     }
 }

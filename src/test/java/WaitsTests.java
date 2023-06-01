@@ -1,5 +1,6 @@
 import Steps.CalendarioWaitsSteps;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class WaitsTests extends BaseTest {
@@ -22,5 +23,16 @@ public class WaitsTests extends BaseTest {
         //Explicit Wait
         calendarioWaitsSteps.waitFechaSeleccionadaExplicit();
         calendarioWaitsSteps.finalizarWebDriver();
+    }
+
+    @Test(description = "waits tarea")
+    public void waitsEnableBox(){
+        calendarioWaitsSteps.abrirPaginaEnableBox();
+        calendarioWaitsSteps.delayBoxEnable();
+        String colorChangeActual= calendarioWaitsSteps.appearsColorChangeBox();
+        String colorChangeExpected = "Color Change";
+        Assert.assertEquals(colorChangeActual,colorChangeExpected);
+
+
     }
 }
