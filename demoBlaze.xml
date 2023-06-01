@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="DemoBlaze">
+    <test verbose="2" preserve-order="true" name="C:/Users/Suri Sinai/Documents/ProyectoFinal_Automation/QAML-Selenium-Feb2023">
+        <classes>
+            <class name="DemoBlazeTest"/>
+        </classes>
+    </test>
+</suite>
+

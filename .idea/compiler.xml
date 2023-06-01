@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="QAML-Selenium" />
-        <module name="QAML-Selenium-May-3" />
+        <module name="QAML-Selenium-Feb2023" />
         <module name="QAML-Selenium-May-6" />
+        <module name="QAML-Selenium-May-3" />
       </profile>
     </annotationProcessing>
   </component>
