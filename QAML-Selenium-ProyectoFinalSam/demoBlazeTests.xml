@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="DemoQA Tests">
+    <test verbose="2" preserve-order="true" name="/Users/samanthacanorubio/Documents/QA ML-GithubRespaso/QAML-Selenium-Feb2023/QAML-Selenium-ProyectoFinalSam">
+        <classes>
+            <class name="SR12120Test"/>
+            <class name="SR12121Test"/>
+            <class name="SR12130Test"/>
+        </classes>
+    </test>
+</suite>
