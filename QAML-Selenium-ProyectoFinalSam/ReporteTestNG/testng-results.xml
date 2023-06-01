@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="DemoQA Tests" duration-ms="12352" started-at="2023-05-31T22:32:51 CDT" finished-at="2023-05-31T22:33:04 CDT">
+    <groups>
+    </groups>
+    <test name="/Users/samanthacanorubio/Documents/QA ML-GithubRespaso/QAML-Selenium-Feb2023/QAML-Selenium-ProyectoFinalSam" duration-ms="12352" started-at="2023-05-31T22:32:51 CDT" finished-at="2023-05-31T22:33:04 CDT">
+      <class name="SR12130Test">
+        <test-method status="PASS" signature="validarCartUnProducto()[pri:0, instance:SR12130Test@63192798]" name="validarCartUnProducto" duration-ms="4948" started-at="2023-05-31T22:32:59 CDT" description="Validar pagina Add to Cart cuando un producto ha sido agregado" finished-at="2023-05-31T22:33:04 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validarCartUnProducto -->
+      </class> <!-- SR12130Test -->
+      <class name="SR12121Test">
+        <test-method status="PASS" signature="validarAlerta()[pri:0, instance:SR12121Test@79da1ec0]" name="validarAlerta" duration-ms="3833" started-at="2023-05-31T22:32:55 CDT" description="Dar click en Add to Cart, Validar la alerta, el texto y dar ok a la alerta para que se cierre" finished-at="2023-05-31T22:32:59 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validarAlerta -->
+      </class> <!-- SR12121Test -->
+      <class name="SR12120Test">
+        <test-method status="PASS" signature="validarInformacionDeProducto()[pri:0, instance:SR12120Test@20a14b55]" name="validarInformacionDeProducto" duration-ms="3539" started-at="2023-05-31T22:32:52 CDT" description="Abrir la pagina y hacer click en un producto para abrirlo" finished-at="2023-05-31T22:32:55 CDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validarInformacionDeProducto -->
+      </class> <!-- SR12120Test -->
+    </test> <!-- /Users/samanthacanorubio/Documents/QA ML-GithubRespaso/QAML-Selenium-Feb2023/QAML-Selenium-ProyectoFinalSam -->
+  </suite> <!-- DemoQA Tests -->
+</testng-results>
