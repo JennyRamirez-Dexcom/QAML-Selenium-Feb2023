@@ -6,9 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="QAML-Selenium" />
-        <module name="QAML-Selenium-May-3" />
-        <module name="QAML-Selenium-May-6" />
+        <module name="QAML-Selenium-ProyectoFinal" />
       </profile>
     </annotationProcessing>
   </component>
