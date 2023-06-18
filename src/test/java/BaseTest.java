@@ -1,16 +1,20 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
-import java.io.File;
+import Pages.BasePage;
+import Utilities.DriverSetup;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 public class BaseTest {
-    private WebDriver webDriver;
+    DriverSetup driver;
+    private BasePage basePage;
 
-    public WebDriver getWebDriver() {
-        File ruta = new File("/Users/jxr20920/Downloads/geckodriver-2");
-        System.setProperty("webdriver.gecko.driver", ruta.getPath());
-        //System.setProperty("webdriver.chrome.driver", ruta.getPath());
-        webDriver = new FirefoxDriver();
-        return webDriver;
+    @BeforeTest(description = "Configuración de precondiciones para ejecución de pruebas", alwaysRun = true)
+    public void beforeTest() {
+        driver = new DriverSetup();
+        basePage = new BasePage(driver.getWebDriver());
+    }
+
+    @AfterTest(description = "Método creado para cerrar el navegador", alwaysRun = true)
+    public void endTest() {
+        basePage.end();
     }
 }
