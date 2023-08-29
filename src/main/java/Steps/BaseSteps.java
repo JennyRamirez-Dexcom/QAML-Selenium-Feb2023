@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BaseSteps {
     public WebDriver webDriver;
@@ -39,7 +41,7 @@ public class BaseSteps {
         webDriver.quit();
     }
 
-    public void imprimir(String cadenaAImprimir) {
+    public void printOut(String cadenaAImprimir) {
         System.out.println(cadenaAImprimir);
     }
 
@@ -90,5 +92,29 @@ public class BaseSteps {
     public void acceptAlert(){
         Alert alert=  getAlert();
         alert.accept();
+    }
+
+    public void waitForElementToNotBeVisible(WebElement element){
+        WebDriverWait wait = new WebDriverWait(webDriver,Duration.ofSeconds(10));
+        // Wait for the element to become invisible
+        wait.until(ExpectedConditions.invisibilityOf(element));
+    }
+
+    public void waitForElementToBeVisible(WebElement element){
+        WebDriverWait wait = new WebDriverWait(webDriver,Duration.ofSeconds(5));
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public List<String>   getOptionsTextFromAList(List<WebElement> menuListElements){
+        List<String> listString = new ArrayList<>();
+        for(WebElement menuOption: menuListElements){
+            if(menuOption.getText().length()>0){
+                listString.add(menuOption.getText());
+                printOut(menuOption.getText());
+            }
+
+        }
+        return listString;
+
     }
 }

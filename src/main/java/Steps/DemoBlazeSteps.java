@@ -136,7 +136,8 @@ public class DemoBlazeSteps extends BaseSteps {
             }
             cont= cont+1;
         }
-        cardsList.get(cont).click();
+        //cardsList.get(cont).click();
+        cardsList.get(cont).findElement(By.cssSelector("h4")).click();
     }
 
     public void getToDemoBlazePage(){

@@ -24,7 +24,7 @@ public class DemoBlazeTest extends BaseTest{
     String expectedImageLinkIphone632gb = "https://www.demoblaze.com/imgs/iphone_6.jpg";
     //List<String> list= Arrays.asList("Home (current)", "Contact", "About us", "Cart", "Log in", "Sign up");
     List<String> publicMenuOptionsExpected = new ArrayList<String>() {{
-        add("Home (current)");
+        add("Home\n" + "(current)");
         add("Contact");
         add("About us");
         add("Cart");
@@ -43,7 +43,7 @@ public class DemoBlazeTest extends BaseTest{
         Assert.assertEquals(menuOptions,publicMenuOptionsExpected);
     }
 
-    @Test (priority = 2, groups = "Saniyt")
+    @Test (priority = 3, groups = "Saniyt")
     public void loginSucess(){
         demoBlazeSteps.goToLoginMenuOption("QADEMOBLAZE", "123");
         Assert.assertEquals(demoBlazeSteps.getWelcomeMessage(), "Welcome QADEMOBLAZE");
@@ -51,8 +51,6 @@ public class DemoBlazeTest extends BaseTest{
 
     @Test(description = "get ALL available items to purchase", priority = 1,groups = {"EndToEndTest"})
     public void validateAvailableItems(){
-        //Assert.assertEquals(demoBlazeSteps.getAllAvailableItemsToPurchase().size(),15);
-        //List<Card> availableItems = demoBlazeSteps.getAvailableItems();
         List<Card> allItemsList = demoBlazeSteps.getAllAvailableItemsToPurchase();
         demoBlazeSteps.printOut("TEST:  " + allItemsList.size());
         for (Card card : allItemsList){
@@ -63,8 +61,9 @@ public class DemoBlazeTest extends BaseTest{
         }
     }
 
-    @Test (description = "validate product details for Iphone 6 32gb" , priority = 1,groups = {"EndToEndTest"})
+    @Test (description = "validate product details for Iphone 6 32gb" , priority = 4,groups = {"EndToEndTest"})
     public void productDetailsIphone632gbTest(){
+        demoBlazeSteps.getToDemoBlazePage();
         demoBlazeSteps.findCardByTextAndClick(Iphone632gb);
         Assert.assertEquals(demoBlazeSteps.AddToCartOptionIsDisplayed(),true);
         Assert.assertEquals(demoBlazeSteps.stringProductDescription(),expectedDescriptionIphone632gb);
@@ -73,7 +72,7 @@ public class DemoBlazeTest extends BaseTest{
         Assert.assertEquals(demoBlazeSteps.imageIsDisplayed(),true);
     }
 
-    @Test (description = "Add Product to the cart" , priority = 2, groups = {"EndToEndTest"})
+    @Test (description = "Add Product to the cart" , priority = 3, groups = {"EndToEndTest"})
     public void addProductToShoppingCartTest(){
         demoBlazeSteps.getToDemoblazeProductPage("https://www.demoblaze.com/prod.html?idp_=5#");
         demoBlazeSteps.clickAddToCart();
@@ -83,7 +82,7 @@ public class DemoBlazeTest extends BaseTest{
 
     }
 
-    @Test (description = "Validate Information on Shopping Cart" , priority = 3, groups = {"EndToEndTest"})
+    @Test (description = "Validate Information on Shopping Cart" , priority = 5, groups = {"EndToEndTest"})
     public  void shoppingCartDetailTest1(){
         //Adding a product to the cart
         demoBlazeSteps.getToDemoblazeProductPage("https://www.demoblaze.com/prod.html?idp_=5#"); //https://www.demoblaze.com/prod.html?idp_=2
