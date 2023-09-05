@@ -13,6 +13,7 @@ public class BaseTest {
     private WebDriver webDriver;
 
     File driverRootPath;
+    File NewVArForTest;
 
     public WebDriver getWebDriver(String browser) {
         switch (browser) {
@@ -20,6 +21,7 @@ public class BaseTest {
                 driverRootPath = new File(getproperties("CHROMEDRIVERPATH"));
                 System.setProperty("webdriver.chrome.dirver", driverRootPath.getPath());
                 ChromeOptions ops = new ChromeOptions();
+                ops.setBinary("/Users/diana.figueroa/Desktop/QAML-Project-DemoBlaze/src/Resources/Drivers/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing");
                 ops.addArguments("--remote-allow-origins=*");
                 webDriver = new ChromeDriver(ops);
                 break;

@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -31,7 +32,7 @@ public class DemoBlazeTest extends BaseTest{
         add("Log in");
         add("Sign up");
     } };
-    @BeforeTest (alwaysRun = true)
+    @BeforeTest(alwaysRun = true)
     public void inizialization(){
         demoBlazeSteps.getToDemoBlazePage();
     }
@@ -63,7 +64,7 @@ public class DemoBlazeTest extends BaseTest{
 
     @Test (description = "validate product details for Iphone 6 32gb" , priority = 4,groups = {"EndToEndTest"})
     public void productDetailsIphone632gbTest(){
-        demoBlazeSteps.getToDemoBlazePage();
+        //demoBlazeSteps.getToDemoBlazePage();
         demoBlazeSteps.findCardByTextAndClick(Iphone632gb);
         Assert.assertEquals(demoBlazeSteps.AddToCartOptionIsDisplayed(),true);
         Assert.assertEquals(demoBlazeSteps.stringProductDescription(),expectedDescriptionIphone632gb);
@@ -90,7 +91,7 @@ public class DemoBlazeTest extends BaseTest{
         demoBlazeSteps.acceptAlert();
         demoBlazeSteps.goToCartMenuOption();
 
-        boolean itemExistInCart = demoBlazeSteps.validateISDeviceNameAndPriceInShoppingCart("Iphone 6 32gb", priceIphone632gb );
+        boolean itemExistInCart = demoBlazeSteps.validateISDeviceNameAndPriceInShoppingCart(Iphone632gb, priceIphone632gb );
         Assert.assertEquals(itemExistInCart, true);
         String imageLink = demoBlazeSteps.getImageLink();
         Assert.assertEquals(imageLink, expectedImageLinkIphone632gb);
