@@ -11,3 +11,4 @@ target/
 /src/Resources/
 settings.properties
 /settings.properties
+.idea
