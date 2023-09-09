@@ -5,4 +5,4 @@ target/
 *.target
 
 #ignore testconfigurationFile for webdrivers local path ..
-BaseTest.java
+* BaseTest.java
