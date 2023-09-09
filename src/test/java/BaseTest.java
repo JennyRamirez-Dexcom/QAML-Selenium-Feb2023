@@ -24,6 +24,7 @@ public class BaseTest {
                 ops.setBinary("/Users/diana.figueroa/Desktop/QAML-Project-DemoBlaze/src/Resources/Drivers/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing");
                 ops.addArguments("--remote-allow-origins=*");
                 webDriver = new ChromeDriver(ops);
+                System.out.println("Qa test ignore");
                 break;
 
             case "Firefox":
