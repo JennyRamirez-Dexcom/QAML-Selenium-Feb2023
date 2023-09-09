@@ -6,5 +6,8 @@ target/
 
 #ignore testconfigurationFile for webdrivers local path ..
 *.BaseTest.java
-src/test/java/BaseTest.java
+/src/test/java/BaseTest.java
 
+/src/Resources/
+settings.properties
+/settings.properties
