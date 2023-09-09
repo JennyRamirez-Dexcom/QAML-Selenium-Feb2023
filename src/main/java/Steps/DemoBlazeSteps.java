@@ -25,6 +25,7 @@ public class DemoBlazeSteps extends BaseSteps {
     DemoBlazeMainFixOptionsPage demoBlazeOptionsPage = PageFactory.initElements(webDriver, DemoBlazeMainFixOptionsPage.class);
     DemoBlazeShoppingCartPage demoBlazeShoppingCartPage = PageFactory.initElements(webDriver, DemoBlazeShoppingCartPage.class);
     DemoBlazeLoginPage demoBlazeLoginPage = PageFactory.initElements(webDriver, DemoBlazeLoginPage.class);
+    String NEW;
 
     public DemoBlazeSteps(WebDriver driver) {
         super(driver);
