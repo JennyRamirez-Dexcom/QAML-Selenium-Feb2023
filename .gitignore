@@ -2,6 +2,7 @@
 /build/
 target/
 /target
+*.target
 
 #ignore testconfigurationFile for webdrivers local path ..
 BaseTest.java
