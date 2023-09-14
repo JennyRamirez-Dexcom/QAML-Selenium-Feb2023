@@ -20,11 +20,11 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class DemoBlazeSteps extends BaseSteps {
-    DemoBlazeIndexPage demoBlazeIndexPage = PageFactory.initElements(webDriver, DemoBlazeIndexPage.class);
-    DemoBlazeProdPage demoBlazeProdPage = PageFactory.initElements(webDriver, DemoBlazeProdPage.class);
-    DemoBlazeMainFixOptionsPage demoBlazeOptionsPage = PageFactory.initElements(webDriver, DemoBlazeMainFixOptionsPage.class);
-    DemoBlazeShoppingCartPage demoBlazeShoppingCartPage = PageFactory.initElements(webDriver, DemoBlazeShoppingCartPage.class);
-    DemoBlazeLoginPage demoBlazeLoginPage = PageFactory.initElements(webDriver, DemoBlazeLoginPage.class);
+    IndexPage demoBlazeIndexPage = PageFactory.initElements(webDriver, IndexPage.class);
+    ProdPage demoBlazeProdPage = PageFactory.initElements(webDriver, ProdPage.class);
+    GeneralOptionsPage demoBlazeOptionsPage = PageFactory.initElements(webDriver, GeneralOptionsPage.class);
+    ShoppingCartPage demoBlazeShoppingCartPage = PageFactory.initElements(webDriver, ShoppingCartPage.class);
+    LoginPage demoBlazeLoginPage = PageFactory.initElements(webDriver, LoginPage.class);
     String NEW;
 
     public DemoBlazeSteps(WebDriver driver) {

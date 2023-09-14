@@ -9,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DemoBlazeIndexPage {
+public class IndexPage {
 
     @FindBy (css = "#tbodyid")
     private WebElement bodyCards;

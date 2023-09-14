@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class DemoBlazeMainFixOptionsPage {
+public class GeneralOptionsPage {
     //Header
     @FindBy (css = "a[id='cartur']")
     private WebElement cartMenuOotion;

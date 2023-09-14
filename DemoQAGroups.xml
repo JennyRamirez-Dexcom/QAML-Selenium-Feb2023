@@ -9,7 +9,9 @@
             </run>
         </groups>
         <classes>
-            <class name="DemoBlazeTest"/>
+            <class name="ProductTest"/>
+            <class name="GeneralTest"/>
+            <class name="ShoppingCartTest"/>
         </classes>
     </test>
 

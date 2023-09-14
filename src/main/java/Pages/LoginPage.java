@@ -3,7 +3,7 @@ package Pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class DemoBlazeLoginPage {
+public class LoginPage {
 
     @FindBy (id = "loginusername")
     private WebElement loginUsername;

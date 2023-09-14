@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class DemoBlazeShoppingCartPage {
+public class ShoppingCartPage {
 
     @FindBy (xpath = "//tr[@class='success']")
     private List<WebElement> shoppingCartDevicesList;
